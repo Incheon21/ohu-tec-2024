@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import React, { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation"
 
 type Props = {};
 
@@ -8,6 +8,8 @@ type Props = {};
 const Navbar: React.FC<Props> = () => {
     const [shadow, setShadow] = useState(false);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const router = useRouter();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -24,11 +26,19 @@ const Navbar: React.FC<Props> = () => {
         };
     }, []);
 
+    const handleTECButtonClick = () => {
+        if (pathname === "/dashboard") {
+            router.push("/");
+        } else {
+            setIsMenuOpen(!isMenuOpen);
+        }
+    };
+
 return (
     <nav className={`fixed h-[80px] w-full bg-[#272427] align-middle items-center flex z-20 transition-shadow duration-300 ${shadow ? "shadow-lg" : ""}`}>
         <div className="text-black font-medium w-full h-[60%] mx-8 sm:mx-20 flex justify-between">
             <div className="flex flex-col h-full items-center justify-center">
-                <button onClick={() => setIsMenuOpen(!isMenuOpen)} className={`font-bold h-full bg-[#554f4a] hover:bg-[#6a6258] rounded-lg ${isMenuOpen ? "bg-[#6a6258]" : "bg-[#554f4a]"}`}>
+                <button onClick={handleTECButtonClick} className={`font-bold h-full bg-[#554f4a] hover:bg-[#6a6258] rounded-lg ${isMenuOpen ? "bg-[#6a6258]" : "bg-[#554f4a]"}`}>
                     <div className="text-white my-1 mx-6 flex flex-row gap-2 text-center justify-center align-middle">
                         <p>TEC</p>
                         <div className="flex items-center justify-center">
@@ -39,12 +49,10 @@ return (
                     </div>
                 </button>
             </div>
-            <div className="flex items-center justify-center h-full">
+            {/* <div className="flex items-center justify-center h-full">
                 <button className="rounded-lg h-full bg-[#9f5524] hover:scale-[1.03] transition-all duration-100 text-white font-semibold">
                     <p className="mx-4 my-1">Join Now!</p>
                 </button>
-            </div>
-            {/* <div className={`flex-col shadow-lg sm:shadow-none sm:flex-row sm:flex gap-12 items-center absolute sm:static top-[80px] left-0 right-0 sm:top-0 bg-gray-100 sm:bg-transparent transition-all duration-300 ${isMenuOpen ? "flex pb-6" : "hidden"}`}>
             </div> */}
         </div>
         <div className={`absolute shadow-md bg-white rounded-md translate-x-10 translate-y-[160px] ${isMenuOpen ? "flex" : "hidden"}`}>

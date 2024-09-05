@@ -3,11 +3,11 @@ import { FaLine } from "react-icons/fa";
 
 function Footer() {
   return (
-    <div id="footer" className=" bg-slate-200">
+    <div id="footer" className="w-full bg-slate-200">
       <section>
         <div className='pb-5 lg:flex'>
           <div className='m-5 text-sm basis-1/3 lg:mx-20'>
-            <h1 className='font-bold'>Techno Entrepreneur Club</h1>
+            <h1 className='font-bold pt-6'>Techno Entrepreneur Club</h1>
             {/* <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum dicta rem perferendis quia assumenda qui. Explicabo sint eum molestias recusandae.</h2> */}
           </div>
 
