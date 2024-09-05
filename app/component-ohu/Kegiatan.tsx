@@ -15,7 +15,7 @@ import { motion } from "framer-motion";
 // import pictures
 import Image from "next/image";
 import tecfest from "/public/assets/image/tecfest.jpg";
-import intern from "/public/assets/image/tecinternship.jpg";
+import intern from "/public/assets/image/intern.jpg";
 import incubator from "/public/assets/image/incubatorbisnis.jpg";
 import compvis from "/public/assets/image/compvis.jpg";
 import tecmeout from "/public/assets/image/tecmeout.jpg";
@@ -67,7 +67,7 @@ const PriceList = () => {
           risus. Vel gravida eget justo aenean ultricies auctor risus.
         </p> */}
       </motion.div>
-      <div className="w-screen h-1/2 ">
+      <div className="w-screen h-1/2">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}

@@ -1,177 +1,92 @@
 "use client";
-import React from "react";
-import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { useState, useEffect } from "react";
-import { useRef } from "react";
-import { useScroll, useTransform, motion, useSpring } from "framer-motion";
-import NavProfile from "/public/assets/image/navbarProfile.jpg";
+import React, { useState, useEffect } from "react";
+import { usePathname, useRouter } from "next/navigation"
 
-const Navbar = () => {
-    const targetRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll();
-    const scaleX = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
-        restDelta: 0.001,
-    });
+type Props = {};
 
-    const ProgressBar = () => {
-        return (
-            <motion.div className="top-0 left-0 z-20 flex justify-start w-full ">
-                <motion.div
-                    style={{ scaleX }}
-                    className="w-full h-[3px] bg-red-500"
-                ></motion.div>
-            </motion.div>
-        );
-    };
-    const [show, setShow] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
 
-    const controlNavbar = () => {
-        if (typeof window !== "undefined") {
-            if (window.scrollY > lastScrollY) {
-                // if scroll down hide the navbar
-                setShow(false);
-            } else {
-                // if scroll up show the navbar
-                setShow(true);
-            }
-
-            // remember current page location to use in the next move
-            setLastScrollY(window.scrollY);
-        }
-    };
+const Navbar: React.FC<Props> = () => {
+    const [shadow, setShadow] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const pathname = usePathname();
+    const router = useRouter();
 
     useEffect(() => {
-        if (typeof window !== "undefined") {
-            window.addEventListener("scroll", controlNavbar);
+        const handleScroll = () => {
+            if (window.scrollY > 10) {
+                setShadow(true);
+            } else {
+                setShadow(false);
+            }
+        };
 
-            // cleanup function
-            return () => {
-                window.removeEventListener("scroll", controlNavbar);
-            };
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    const handleTECButtonClick = () => {
+        if (pathname === "/dashboard") {
+            router.push("/");
+        } else {
+            setIsMenuOpen(!isMenuOpen);
         }
-    }, [lastScrollY]);
+    };
 
-    return (
-        <div className="fixed top-0 z-10 flex flex-col items-center justify-center w-screen ">
-            <ProgressBar></ProgressBar>
-            <motion.div
-                initial={{ y: -50 }}
-                whileInView={{ y: 0 }}
-                transition={{ duration: 0.5 }}
-                className={`w-[70vw] md:w-fit md:px-10 h-fit absolute top-0  bg-black rounded-b-2xl flex justify-center items-center shadow-md shadow-gray-800 transition-all duration-300${
-                    !show &&
-                    "-translate-y-10 md:-translate-y-0 bg-white  bg-opacity-10 backdrop-blur-lg drop-shadow-lg "
-                } `}
-            >
-                <NavigationMenu>
-                    <NavigationMenuList>
-                        <NavigationMenuItem className="py-3">
-                            <NavigationMenuTrigger
-                                className={`text-2xl text-white bg-transparent ${
-                                    !show && "text-black"
-                                }`}
-                            >
-                                <p className="">TEC</p>
-                            </NavigationMenuTrigger>
-                            <NavigationMenuContent>
-                                <div className="w-[250px] h-fit flex ">
-                                    <AspectRatio
-                                        ratio={10 / 12}
-                                        className=" bg-muted"
-                                    >
-                                        <Image
-                                            src={NavProfile}
-                                            alt="Navbar Profile"
-                                            fill
-                                            className="object-cover w-1/2 rounded-md"
-                                            objectPosition="45% bottom"
-                                        />
-                                    </AspectRatio>
-                                    <div className="w-1/2 ">
-                                        <Button className="flex flex-col text-black bg-white h-1/3 hover:text-white">
-                                            <a
-                                                href="#videoplayer"
-                                                className="font-semibold"
-                                            >
-                                                Teaser
-                                            </a>
-                                            <a
-                                                href="#videoplayer"
-                                                className="text-xs font-light"
-                                            >
-                                                Open House Unit TEC 2023
-                                            </a>
-                                        </Button>
-                                        <Button className="flex flex-col text-black bg-white h-1/3 hover:text-white">
-                                            <a
-                                                href="#kegiatan"
-                                                className="font-semibold"
-                                            >
-                                                What we do?
-                                            </a>
-                                            <a
-                                                href="#kegiatan"
-                                                className="text-xs font-light"
-                                            >
-                                                TEC Past Activities
-                                            </a>
-                                        </Button>
-                                        <Button className="flex flex-col text-black bg-white h-1/3 hover:text-white">
-                                            <a
-                                                href="#footer"
-                                                className="font-semibold"
-                                            >
-                                                TEC SosMed
-                                            </a>
-                                            <a
-                                                href="#footer"
-                                                className="text-xs font-light"
-                                            >
-                                                Check on footer!
-                                            </a>
-                                        </Button>
-                                    </div>
-                                </div>
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
-
-                    {/**    <NavigationMenuItem className="scroll-smooth">
-                            <a className="scroll-smooth" href="#countdown">
-                                <NavigationMenuLink
-                                    className={navigationMenuTriggerStyle()}
-                                >
-                                    Countdown
-                                </NavigationMenuLink>
-                            </a>
-                        </NavigationMenuItem>*/} 
-                        <NavigationMenuItem className="scroll-smooth">
-                            <a className="scroll-smooth" href="/dashboard">
-                                <NavigationMenuLink
-                                    className={navigationMenuTriggerStyle()}
-                                >
-                                    Join Now!
-                                </NavigationMenuLink>
-                            </a>
-                        </NavigationMenuItem>
-                    </NavigationMenuList>
-                </NavigationMenu>
-            </motion.div>
+return (
+    <nav className={`fixed h-[80px] w-full bg-[#272427] align-middle items-center flex z-20 transition-shadow duration-300 ${shadow ? "shadow-lg" : ""}`}>
+        <div className="text-black font-medium w-full h-[60%] mx-8 sm:mx-20 flex justify-between">
+            <div className="flex flex-col h-full items-center justify-center">
+                <button onClick={handleTECButtonClick} className={`font-bold h-full bg-[#554f4a] hover:bg-[#6a6258] rounded-lg ${isMenuOpen ? "bg-[#6a6258]" : "bg-[#554f4a]"}`}>
+                    <div className="text-white my-1 mx-6 flex flex-row gap-2 text-center justify-center align-middle">
+                        <p>TEC</p>
+                        <div className="flex items-center justify-center">
+                            <svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.29289 8.70711C7.68342 9.09763 8.31658 9.09763 8.70711 8.70711L15.0711 2.34315C15.4616 1.95262 15.4616 1.31946 15.0711 0.928932C14.6805 0.538408 14.0474 0.538408 13.6569 0.928932L8 6.58579L2.34315 0.928932C1.95262 0.538408 1.31946 0.538408 0.928932 0.928932C0.538408 1.31946 0.538408 1.95262 0.928932 2.34315L7.29289 8.70711ZM7 7V8H9V7H7Z" fill="white"/>
+                            </svg>
+                        </div>
+                    </div>
+                </button>
+            </div>
+            {/* <div className="flex items-center justify-center h-full">
+                <button className="rounded-lg h-full bg-[#9f5524] hover:scale-[1.03] transition-all duration-100 text-white font-semibold">
+                    <p className="mx-4 my-1">Join Now!</p>
+                </button>
+            </div> */}
         </div>
-    );
-};
+        <div className={`absolute shadow-md bg-white rounded-md translate-x-10 translate-y-[160px] ${isMenuOpen ? "flex" : "hidden"}`}>
+            <div className="flex flex-row w-auto">
+                <div className="flex flex-col w-auto ">
+                    <button className="text-left hover:bg-gray-200">
+                        <a href="#videoplayer">
+                        <div className="mx-4 border-b-2 border-black">
+                            <h1 className="font-bold text-lg mt-3">Teaser</h1>
+                            <p className="mb-3">Open House Unit TEC 2024</p>
+                        </div>
+                        </a>
+                    </button>
+                    <button className="text-left hover:bg-gray-200">
+                        <a href="#kegiatan">
+                        <div className="mx-4 border-b-2 border-black">
+                            <h1 className="font-bold text-lg mt-3">What we do?</h1>
+                            <p className="mb-3">TEC Past Activities</p>
+                        </div>
+                        </a>
+                    </button>
+                    <button className="text-left hover:bg-gray-200">
+                        <a href="#footer">
+                        <div className="mx-4">
+                            <h1 className="font-bold text-lg mt-3">TEC SocMed</h1>
+                            <p className="mb-3">Check our Social Media on footer</p>
+                        </div>
+                        </a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+)
+}
 
 export default Navbar;

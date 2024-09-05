@@ -14,7 +14,7 @@ const Countdown = () => {
     const [countDay, setcountDay] = useState(0);
 
     function countDown() {
-        const targetDate = new Date("September 2, 2023 13:00:00").getTime();
+        const targetDate = new Date("September 15, 2024 13:00:00").getTime();
         const currDate = new Date().getTime();
         const gap = targetDate - currDate;
 
@@ -89,7 +89,7 @@ const Countdown = () => {
                     <p className="text-xs md:text-2xl">Seconds</p>
                 </motion.div>
             </div>
-            <h2 className="w-full text-4xl font-semibold text-center md:text-6xl">Till Registration Open</h2>
+            <h2 className="w-full text-2xl font-semibold text-center md:text-6xl">Till Registration Closed</h2>
         </div>
     );
 };
