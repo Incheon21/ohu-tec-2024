@@ -1,8 +1,11 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import Profile from "/public/assets/image/profile.jpg";
+import Profile from "/public/assets/image/hero.jpg";
 import Image from "next/image";
+import { Monoton } from 'next/font/google'
+
+const monoton = Monoton({ subsets: ['latin'] , weight : ['400'] })
 
 function PernakPernik() {
   return (
@@ -14,9 +17,9 @@ function PernakPernik() {
           duration: 0.3,
           delay: 0.3,
         }}
-        className="w-20 h-20  translate-x-10 -translate-y-20  bg-gradient-to-t from-[#372F85] via-[#AF86D6] to-[#AF86D6] shadow-lg rotate-12 shadow-black flex items-center justify-center text-5xl text-white font-bold"
+        className="w-20 h-20 rounded-full translate-x-[70px] -translate-y-20  bg-gradient-to-t from-[#c66541] to-[#9f5524] shadow-lg rotate-12 shadow-black flex items-center justify-center text-5xl text-white font-bold"
       >
-        <p>T</p>
+        <p className={monoton.className}>T</p>
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
@@ -25,9 +28,9 @@ function PernakPernik() {
           duration: 0.3,
           delay: 0.6,
         }}
-        className="w-20 h-20  translate-x-16 md:translate-x-40  bg-gradient-to-r from-[#FBB915] via-[#C9D650] to-[#6AC4B8] shadow-lg -rotate-6 shadow-black flex items-center justify-center text-5xl text-white font-bold -translate-y-10"
+        className="w-20 h-20 rounded-full translate-x-[80px] md:translate-x-20  bg-gradient-to-r from-[#6a6258] to-[#a99f8e] shadow-lg shadow-black flex items-center justify-center text-5xl text-white font-bold -translate-y-10"
       >
-        E
+        <p className={monoton.className}>E</p>
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}
@@ -36,9 +39,9 @@ function PernakPernik() {
           duration: 0.3,
           delay: 0.9,
         }}
-        className="w-20 h-20  translate-x-24 md:translate-x-64  bg-gradient-to-br from-[#0A6EA2] via-[#6AC4B8] to-[#6AC4B8] shadow-lg -translate-y-44 -rotate-6 shadow-black flex items-center justify-center text-5xl text-white font-bold"
+        className="w-20 h-20 rounded-full translate-x-[90px] md:translate-x-20  bg-gradient-to-br from-[#e6d2a0] to-[#e4d7ba] shadow-lg -translate-y-[80px] -rotate-6 shadow-black flex items-center justify-center text-5xl text-white font-bold"
       >
-        C
+        <p className={monoton.className}>C</p>
       </motion.div>
       <div className="hidden md:scroll-smooth md:absolute md:flex md:items-center md:justify-center md:w-full md:pt-10 md:animate-bounce md:bottom-10 ">
         <a href="#videoplayer">
@@ -65,14 +68,14 @@ function PernakPernik() {
 
 const Hero = () => {
   return (
-    <div className="flex flex-col w-screen pt-20 mb-20 md:pt-32 h-fit md:pb-24">
-      <div className="flex flex-col px-10 h-3/4 pt-7 md:flex-row md:justify-center md:items-center md:px-20 md:w-screen md:translate-x-10 md:-translate-y-20 ">
+    <div className="flex flex-col w-screen pt-16 mb-20 md:pt-[160px] h-fit md:pb-24">
+      <div className="flex flex-col px-10 h-3/4 pt-10 md:flex-row md:justify-center md:items-center md:px-20 md:w-screen md:translate-x-10 md:-translate-y-20 ">
         <motion.div
           animate={
             {
-              "--color-a": ["#FBB915", "#0A6EA2", "#6AC4B8", "#AF86D6"],
-              "--color-b": ["AF86D6", "#C9D650", "#C9D650"],
-              "--color-c": ["#372F85", "#f4e54d", "#FFD649", "#4455A3"],
+              "--color-a": ["#c66541", "#ebd7ba", "#554f4a", "#9b8978"],
+              "--color-b": ["#e6d2a0", "#9f5524", "#c29454"],
+              "--color-c": ["#f2e7d6", "#e4d7ba", "#a99f8e", "#6a6258"],
             } as any
           }
           transition={{
@@ -109,7 +112,7 @@ const Hero = () => {
             ITB.
           </motion.p>
           <a href="/dashboard">
-            <button className="w-1/4 px-1 py-1 mx-3 my-5 bg-gradient-to-r from-[#FBB915] via-[#0A6EA2] to-[#6AC4B8] font-semibold rounded-xl md:my-7 md:h-10 text-white shadow-lg shadow-[#372F85] hover:scale-125 transition duration-1000 hover:duration-300 cursor-pointer ">
+            <button className="w-1/2 sm:w-1/4 px-1 py-1 my-5 bg-gradient-to-r from-[#9f5524] to-[#c66541] font-semibold rounded-xl md:my-7 md:h-10 text-white shadow-lg shadow-[#372F85] hover:scale-125 transition duration-1000 hover:duration-300 cursor-pointer ">
               Join Now!
             </button>
           </a>
@@ -119,7 +122,7 @@ const Hero = () => {
           <Image
             src={Profile}
             alt="Profile Image"
-            className="w-64 h-64 bg-gray-200 rounded-full md:w-96 md:h-96"
+            className="w-72 h-72 bg-gray-200 rounded-full md:w-96 md:h-96 object-cover"
           />
         </div>
       </div>

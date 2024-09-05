@@ -15,13 +15,13 @@ export default function Home() {
             <section className="w-[100vw]  overflow-hidden h-fit">
                 <Popup />
                 <Hero />
-                <Navbar />
+                {/* <Navbar /> */}
                 <VideoPlayer />
                 {/* <Regis /> */}
                 {/* <Kegiatan /> */}
                 {/** <Countdown />*/}
                 <Kegiatan />
-                <Challenge></Challenge>
+                {/* <Challenge></Challenge> */}
                 <Footer />
             </section>
         </html>

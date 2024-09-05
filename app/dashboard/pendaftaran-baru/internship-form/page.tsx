@@ -1,5 +1,5 @@
 import React from "react";
-// import FormInternship from "@/app/component-ohu/FormInternship";
+import FormInternship from "@/app/component-ohu/FormBundle";
 
 export default function page() {
     // return (
@@ -13,7 +13,7 @@ export default function page() {
     // );
     return (
         <h1 className="font-bold text-5xl text-center">
-            PENDAFTARAN SUDAH DITUTUP
+            <FormInternship/>
         </h1>
     );
 }
