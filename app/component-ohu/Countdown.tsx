@@ -14,7 +14,7 @@ const Countdown = () => {
     const [countDay, setcountDay] = useState(0);
 
     function countDown() {
-        const targetDate = new Date("September 15, 2024 13:00:00").getTime();
+        const targetDate = new Date("September 25, 2024 23:59:00").getTime();
         const currDate = new Date().getTime();
         const gap = targetDate - currDate;
 

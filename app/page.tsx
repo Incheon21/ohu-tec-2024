@@ -9,7 +9,7 @@ import PaginationNumbers from "./component-ohu/pagination";
 import { useMediaQuery } from 'react-responsive';
 
 import Image from "next/image";
-import tecfest from "/public/assets/image/tecfest.jpg";
+import tecfest from "/public/assets/image/tecfest.png";
 import intern from "/public/assets/image/intern.jpg";
 import incubator from "/public/assets/image/incubatorbisnis.jpg";
 import compvis from "/public/assets/image/compvis.jpg";
@@ -30,29 +30,34 @@ export default function Home() {
 
     const posts = [
         {
-            title: 'TECFest',
+            title: 'TEC Festival',
             image: tecfest,
-            description: `TECFest adalah entrepreneurial festival yang diadakan secara tahunan. TECFest dimulai pada tahun 2019 dan kini sedang dilaksanakan TECFest yang ke-5 dengan visi "Catalyzing Indonesia's Future Entrepreneurs Through Technology and Youth-Led Innovations". TECFest terdiri dari berbagai rangkaian, seperti Business Competitions, Youth Entrepreneur Lab, Start Up EXPO, dan sebagainya`,
+            description: `TEC Festival adalah sebuah acara besar tahunan TEC ITB yang berisikan rangkaian perlombaan Business Case dan Business Plan Competition yang dilengkapi dengan acara puncak berupa sesi Talkshow dan Final dari perlombaan yang diadakan.`,
         },
         {
             title: 'TEC Internship',
             image: intern,
-            description: `TEC Internship merupakan wadah pengembangan, pembinaan, dan pendidikan bagi  calon anggota TEC ITB untuk mempersiakan diri sebelum secara resmi menjadi bagian dari TEC ITB.`,
-        },
-        {
-            title: 'Incubator Bisnis',
-            image: incubator,
-            description: `Incubator Bisnis merupakan program TEC yang akan membimbing anggotanya untuk memenuhi tujuan dan kebutuhan tiap anggota baik dalam hal membuat bisnis maupun ketertarikan dalam mengikuti perlombaan mengenai bisnis.`,
+            description: `TEC Internship adalah sebuah fase pelatihan untuk menjadi anggota TEC ITB. TEC Internship merupakan proses di mana setiap individu yang mendaftar menjadi anggota TEC ITB menjalankan pendidikan awal mengenai dunia bisnis dan menerima ilmu-ilmu dari narasumber berpengalaman.`,
         },
         {
             title: 'Company Visit',
-            image: compvis,
-            description: `Company Visit merupakan salah satu program TEC dengan mengunjungi perusahaan tertentu agar mendapatkan wawasan yang lebih mendalam mengenai bagaimana sebuah perusahaan berorganisasi.`,
+            image: incubator,
+            description: `Company Visit merupakan program khusus bagi para anggota TEC ITB. Anggota-anggota TEC ITB memiliki kesempatan untuk melakukan company visit ke perusahaan-perusahaan ternama di Indonesia. Saat ini, TEC ITB telah berhasil menjalin kerjasama company visit dengan Pocari dan Agate.`,
         },
         {
-            title: 'TECMeOut',
+            title: 'Studi Banding',
+            image: compvis,
+            description: `Studi Banding merupakan program yang mempertemukan TEC ITB dengan unit bisnis lain dari berbagai universitas di seluruh Indonesia. Melalui studi banding, TEC ITB berkesempatan untuk bertukar pikiran, mencari referensi untuk pengembangan, bahkan menjadi inspirasi bagi perkembangan unit-unit lain di luar sana. Selain itu, peserta studi banding dapat memperoleh relasi dengan mahasiswa di seluruh Indonesia.`,
+        },
+        {
+            title: 'Business Incubator',
             image: tecmeout,
-            description: `TECMeOut merupakan salah satu program TEC yang bertujuan mempererat ikatan di antara para anggota melalui kegiatan-kegiatan seperti berolahraga bersama atau bahkan sekedar riding dan jalan-jalan bersama.`,
+            description: `Business Incubator merupakan program TEC yang menginkubasi ide-ide bisnis dari anggota TEC ITB. Program ini memiliki fokus untuk menjadikan para anggota TEC ITB pebisnis muda. Business Incubator memberikan pelatihan berupa mentoring dengan para pebisnis muda, presentasi ide, sampai menyediakan wadah untuk anggota TEC ITB berinteraksi langsung dengan investor.`,
+        },
+        {
+            title: 'Competition Mentoring',
+            image: tecmeout,
+            description: `Competition Mentoring merupakan program TEC yang memfasilitasi para anggotanya dalam mempersiapkan perlombaan Business Case dan Business Plan dengan para mentor berpengalaman yang telah memenangkan berbagai perlombaan terkait.`,
         },
     ];
 
@@ -71,19 +76,19 @@ export default function Home() {
                     <h2 className="text-2xl font-bold mb-2 text-black">Our Activities</h2>
                     <div className="mx-12 grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-6">
                         {currentPosts.map((post, index) => (
-                            <div key={index} className="w-full h-full bg-gray-200 rounded-2xl flex flex-col overflow-clip sm:w-[30vw] sm:h-[40vw] lg:w-[25vw] lg:h-[30vw] mt-9 min-[500px]:mt-10 md:mt-7 ">
+                            <div key={index} className="w-full h-[360px] bg-gray-200 rounded-2xl flex flex-col overflow-clip sm:w-[30vw] sm:h-[420px] lg:w-[25vw] lg:h-[540px] mt-9 min-[500px]:mt-10 md:mt-7 ">
                                 <div className="w-full bg-red-200 h-1/2">
                                     <Image
                                         src={post.image}
                                         alt={post.title}
-                                        className="w-full h-full"
+                                        className="w-full h-full object-cover"
                                     />
                                 </div>
-                                <div className="flex flex-col items-center justify-center w-full px-2 text-center h-1/2 lg:justify-normal lg:pt-5 lg:px-8">
-                                    <h2 className="font-bold text-sm sm:text-[15px] lg:text-[16px] min-[1300px]:text-lg ">
+                                <div className="flex flex-col items-center gap-4  w-full px-2 text-center h-1/2 lg:justify-normal lg:pt-5 lg:px-8">
+                                    <h2 className="font-bold mt-4 text-sm sm:text-[15px] lg:text-[16px] min-[1300px]:text-lg ">
                                         {post.title}
                                     </h2>
-                                    <p className="text-[12px] sm:text-[10px] min-[1300px]:text-[12px] min-[1300px]:pt-2 mb-6">
+                                    <p className="text-[10px] sm:text-[10px] min-[1300px]:text-[12px] min-[1300px]:pt-2 mb-6">
                                         {post.description}
                                     </p>
                                 </div>

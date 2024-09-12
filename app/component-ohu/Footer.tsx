@@ -37,13 +37,13 @@ function Footer() {
             <div className='flex items-center mt-2'>
               <FaLine size="2em" />
               <div className='ml-3'>
-                <h2>nafisha_44</h2>
+                <h2>imurcaffeine (Rania)</h2>
               </div>
             </div>
             <div className='flex items-center mt-2'>
               <FaLine size="2em" />
               <div className='ml-3'>
-                <h2>khalshft</h2>
+                <h2>fitriatinz (Fitri)</h2>
               </div>
             </div>
 {/* 
