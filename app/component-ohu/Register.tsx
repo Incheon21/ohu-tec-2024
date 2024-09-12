@@ -34,7 +34,7 @@ const Dashboard = () => {
                         <div className="flex items-center justify-center w-full">
                             <Button className="w-full mx-6 my-7">
                                 <Link
-                                    href="dashboard/daftar-ulang"
+                                    href="https://bit.ly/OprecTECIntern2024"
                                     className="flex items-center justify-center w-full h-full"
                                 >
                                     Daftar Sekarang
@@ -44,7 +44,7 @@ const Dashboard = () => {
                     </div>
                 </div>
                 <div className="w-[70vw] md:w-full h-[1px] flex gap-2 items-center justify-center mt-5">
-                    <Link href="https://drive.google.com/drive/folders/1-3U5xSyr7SCTIxYVTavMsh_y9ZAsOu79" target="_blank">
+                    <Link href="https://docs.google.com/document/d/1XQ32HmlxmXpFLnWjdGwRF-DLimKZLHwgn3HdhoB7VrI/edit" target="_blank">
                         <Button
                             variant="link"
                             className="flex gap-2 p-10 border-2 border-black rounded-2xl"

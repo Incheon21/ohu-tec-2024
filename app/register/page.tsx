@@ -1,5 +1,5 @@
 import React from "react";
-import Dashboard from "../component-ohu/Dashboard";
+import Dashboard from "../component-ohu/Register";
 
 export default function Registration() {
     return (
