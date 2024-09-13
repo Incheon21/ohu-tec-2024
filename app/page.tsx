@@ -11,9 +11,10 @@ import { useMediaQuery } from 'react-responsive';
 import Image from "next/image";
 import tecfest from "/public/assets/image/tecfest.png";
 import intern from "/public/assets/image/intern.jpg";
-import incubator from "/public/assets/image/incubatorbisnis.jpg";
+import incubator from "/public/assets/image/incubator.jpg";
 import compvis from "/public/assets/image/compvis.jpg";
-import tecmeout from "/public/assets/image/tecmeout.jpg";
+import mentor from "/public/assets/image/mentor.jpg";
+import studban from "/public/assets/image/studban.jpg";
 
 
 export default function Home() {
@@ -41,22 +42,22 @@ export default function Home() {
         },
         {
             title: 'Company Visit',
-            image: incubator,
+            image: compvis,
             description: `Company Visit merupakan program khusus bagi para anggota TEC ITB. Anggota-anggota TEC ITB memiliki kesempatan untuk melakukan company visit ke perusahaan-perusahaan ternama di Indonesia. Saat ini, TEC ITB telah berhasil menjalin kerjasama company visit dengan Pocari dan Agate.`,
         },
         {
             title: 'Studi Banding',
-            image: compvis,
+            image: studban,
             description: `Studi Banding merupakan program yang mempertemukan TEC ITB dengan unit bisnis lain dari berbagai universitas di seluruh Indonesia. Melalui studi banding, TEC ITB berkesempatan untuk bertukar pikiran, mencari referensi untuk pengembangan, bahkan menjadi inspirasi bagi perkembangan unit-unit lain di luar sana. Selain itu, peserta studi banding dapat memperoleh relasi dengan mahasiswa di seluruh Indonesia.`,
         },
         {
             title: 'Business Incubator',
-            image: tecmeout,
+            image: incubator,
             description: `Business Incubator merupakan program TEC yang menginkubasi ide-ide bisnis dari anggota TEC ITB. Program ini memiliki fokus untuk menjadikan para anggota TEC ITB pebisnis muda. Business Incubator memberikan pelatihan berupa mentoring dengan para pebisnis muda, presentasi ide, sampai menyediakan wadah untuk anggota TEC ITB berinteraksi langsung dengan investor.`,
         },
         {
             title: 'Competition Mentoring',
-            image: tecmeout,
+            image: mentor,
             description: `Competition Mentoring merupakan program TEC yang memfasilitasi para anggotanya dalam mempersiapkan perlombaan Business Case dan Business Plan dengan para mentor berpengalaman yang telah memenangkan berbagai perlombaan terkait.`,
         },
     ];
